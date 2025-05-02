@@ -9,9 +9,9 @@ async function main(){
             { name: 'Jane Smith', age: 25 },
             { name: 'Alice Johnson', age: 28 }
         ];
-        const insertResult = await collection.insertMany(data);
+        const updateResult = await collection.updateMany({ age: { $gt: 25 } }, { $set: { status: 'senior' } });
 
-        console.log('Found documents:', insertResult);
+        console.log( updateResult.modifiedCount);
 
     }
     catch(err){
